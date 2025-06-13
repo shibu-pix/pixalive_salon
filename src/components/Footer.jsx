@@ -1,55 +1,42 @@
-import React from 'react';
+// components/Footer.jsx
+const Footer = ({ variant = 'pipeline' }) => {
+  if (variant === 'pipeline') {
+    return (
+      <footer className="text-center text-sm text-gray-500 mt-8">
+        <p>© 2018 Privacy Technology Services, UK</p>
+        <p className="my-2">www.pipe.com</p>
+        <div className="border-t border-gray-200 pt-4 mt-4">
+          <h3 className="font-medium text-gray-700">Contact</h3>
+          <p>contact@pipelinehealth.com</p>
+          <p>475 97785 83666</p>
+          <p>E-mail: @pipelinehealth.com</p>
+          <p>Excellence City, Stampdown</p>
+        </div>
+        <div className="flex justify-center space-x-4 mt-4">
+          <span>Terms of time</span>
+          <span>Primary Policy</span>
+        </div>
+      </footer>
+    )
+  }
 
-const Footer = () => {
   return (
-    <footer className="bg-black text-white py-12">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* Left Column */}
-          <div>
-            <img 
-              src="/pixalive_technology_services_logo.jpeg" 
-              alt="Pixalive Technology Services" 
-              className="h-8 w-8 object-contain mb-6"
-            />
-            <p className="text-gray-300 mb-6 max-w-md leading-relaxed">
-              From bold ideas to real-world tech—<br />
-              Pixalive is where innovation comes alive.
-            </p>
-            <p className="text-sm text-gray-400">
-              © 2024 Pixalive Technology Services. All<br />
-              rights reserved.
-            </p>
-          </div>
-
-          {/* Right Column */}
-          <div className="md:text-right">
-            <h3 className="font-semibold mb-4 text-white">Contact</h3>
-            <div className="space-y-2">
-              <p className="text-gray-300">contact@pixalivetech.com</p>
-              <p className="text-gray-300">+91 78741 84856</p>
-              <div className="mt-4 space-y-1">
-                <p className="text-gray-300">Pixalive Salon Network Private Limited</p>
-                <p className="text-gray-300">Electronic City, Bangalore</p>
-              </div>
-            </div>
-
-            <div className="flex md:justify-end space-x-6 mt-8 text-sm">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">Terms of Use</a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Logo */}
-        <div className="mt-16 pt-8 border-t border-gray-800">
-          <div className="text-6xl font-bold text-white">
-            Pixalive
-          </div>
-        </div>
+    <footer className="text-center text-sm text-gray-500 mt-8">
+      <p>© 2018 Faculty Technology Services, UK</p>
+      <p className="my-2">info@research.com</p>
+      <div className="border-t border-gray-200 pt-4 mt-4">
+        <h3 className="font-medium text-gray-700">Contact</h3>
+        <p>contact@researchtech.com</p>
+        <p>v16 97766 840646</p>
+        <p>Emailing: Robert Mitsume's Business Limited</p>
+        <p>Documents: City, Stereophore</p>
+      </div>
+      <div className="flex justify-center space-x-4 mt-4">
+        <span>Town of New</span>
+        <span>Phone/Phone</span>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

@@ -1,35 +1,42 @@
-import React from 'react';
-import Header from './components/Header';
-import ProfessionalSelection from './components/ProfessionalSelection';
-import DateTimeSelection from './components/DateTimeSelection';
-import BookingSummary from './components/BookingSummary';
-import TrustIndicators from './components/TrustIndicators';
-import Footer from './components/Footer';
+// App.jsx
+import { useState } from 'react'
+import SelectProfessionalPage from './pages/SelectProfessionalPage'
+import ReviewConfirmPage from './pages/ReviewConfirmPage'
 
 function App() {
+  const [currentPage, setCurrentPage] = useState('select')
+  const [bookingData, setBookingData] = useState({
+    professional: null,
+    dateTime: null,
+    discountCode: '',
+    notes: []
+  })
+
+  const handleProfessionalSelect = (data) => {
+    setBookingData(prev => ({ ...prev, ...data }))
+    setCurrentPage('review')
+  }
+
+  const handleBackToSelection = () => {
+    setCurrentPage('select')
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header />
-      
-      <main className="max-w-7xl mx-auto px-4 py-8">
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* Left Column - Professional and Date/Time Selection */}
-          <div className="lg:col-span-2 space-y-8">
-            <ProfessionalSelection />
-            <DateTimeSelection />
-          </div>
-          
-          {/* Right Column - Booking Summary */}
-          <div className="lg:col-span-1">
-            <BookingSummary />
-          </div>
-        </div>
-      </main>
-
-      <TrustIndicators />
-      <Footer />
+      {currentPage === 'select' ? (
+        <SelectProfessionalPage 
+          onProfessionalSelect={handleProfessionalSelect} 
+          initialData={bookingData}
+        />
+      ) : (
+        <ReviewConfirmPage 
+          bookingData={bookingData} 
+          onBack={handleBackToSelection}
+          onUpdateBookingData={setBookingData}
+        />
+      )}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
