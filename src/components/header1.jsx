@@ -52,7 +52,7 @@ const HeroSection = () => {
 
       {/* Title */}
       <div className="text-center px-4 mt-10">
-        <h1 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight">
+        <h1 className="text-4xl md:text-5xl font-sm text-gray-900 leading-tight">
           Book local beauty and<br />wellness services
         </h1>
       </div>

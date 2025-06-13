@@ -13,21 +13,19 @@ import img7 from "./../../assets/Home/hero7.jpg";
 import img8 from "./../../assets/Home/hero8.jpg";
 import img9 from "./../../assets/Home/hero9.jpg";
 import img0 from "./../../assets/Home/hero0.jpg";
-
+import Logo from "./../../assets/Home/logo.png";
 
 const HeroSection = () => {
   const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img0];
-const rotations = ["-5deg", "-3deg", "-2deg", "-1deg", "0deg", "0deg", "1deg", "2deg", "3deg", "5deg"];
-
+  const rotations = ["-5deg", "-3deg", "-2deg", "-1deg", "0deg", "0deg", "1deg", "2deg", "3deg", "5deg"];
 
   return (
-    <div className="min-h-screen font-lufga bg-white">
+    <div className="min-h-screen bg-white font-lufga">
+      
       {/* Header */}
       <header className="flex justify-between items-center px-6 py-4">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-black text-white flex items-center justify-center rounded text-lg font-semibold">
-            P
-          </div>
+          <img src={Logo} alt="Logo" className="w-10 h-10 object-contain" />
         </div>
         <div className="flex items-center gap-4 text-gray-600">
           <span className="text-sm cursor-pointer hover:underline">Log in</span>
@@ -37,7 +35,7 @@ const rotations = ["-5deg", "-3deg", "-2deg", "-1deg", "0deg", "0deg", "1deg", "
       </header>
 
       {/* Curved Image Strip */}
-      <div className="flex justify-center items-center gap-4 px-6 py-6 overflow-x-auto">
+      <div className="flex justify-center items-end gap-3 px-6 py-6 overflow-x-auto">
         {images.map((src, index) => (
           <div
             key={index}
@@ -58,13 +56,14 @@ const rotations = ["-5deg", "-3deg", "-2deg", "-1deg", "0deg", "0deg", "1deg", "
 
       {/* Title */}
       <div className="text-center px-4 mt-10">
-        <h1 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight">
+        <h1 className="text-4xl md:text-6xl font-medium text-gray-900 leading-tight">
           Book local beauty and<br />wellness services
         </h1>
       </div>
 
       {/* Filter Bar */}
-      <div className="flex items-center justify-between border border-gray-300 rounded-full px-4 py-2 mx-auto mt-10 w-fit shadow-sm overflow-x-auto bg-white">
+      <div className="flex items-center justify-between border border-gray-300 rounded-full px-4 py-2 mx-auto mt-10 w-fit shadow-sm overflow-x-auto bg-white max-w-full">
+        
         {/* Filter: Treatment */}
         <button className="flex items-center gap-2 px-4 text-sm text-gray-700 whitespace-nowrap">
           <FaSearch className="text-black" />
