@@ -1,11 +1,16 @@
-import React from 'react'
-import Header from './components/Home/header';
+import React from 'react';
+import Home from './pages/Home'
 
 function App() {
   return (
- <Header/>
-  )
+    <>
+      
+      <main>
+        <Home />
+      </main>
+      
+    </>
+  );
 }
 
-export default App
-
+export default App;
