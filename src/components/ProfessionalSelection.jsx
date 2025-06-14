@@ -8,24 +8,9 @@ const ProfessionalSelection = ({ bookingData, updateBookingData, onNext, onPrev 
   const [currentMonth, setCurrentMonth] = useState(new Date(2025, 5)) // June 2025
 
   const professionals = [
-    { 
-      id: 'any', 
-      name: 'Any professional', 
-      subtitle: 'For maximum availability',
-      icon: '🔄'
-    },
-    { 
-      id: 'Beautician', 
-      name: 'Premalatha', 
-      subtitle: 'Beautician',
-      icon: '👥'
-    },
-    { 
-      id: 'Hair Stylist', 
-      name: 'Somunaath', 
-      subtitle: 'Hair Stylist',
-      icon: '💰'
-    }
+    { id: 'any', name: 'Any professional', subtitle: 'For maximum availability', icon: '🔄' },
+    { id: 'Beautician', name: 'Premalatha', subtitle: 'Beautician', icon: '👥' },
+    { id: 'Hair Stylist', name: 'Somunaath', subtitle: 'Hair Stylist', icon: '💰' }
   ]
 
   const timeSlots = [
@@ -43,17 +28,8 @@ const ProfessionalSelection = ({ bookingData, updateBookingData, onNext, onPrev 
     const startingDayOfWeek = firstDay.getDay()
 
     const days = []
-    
-    // Add empty cells for days before the first day of the month
-    for (let i = 0; i < startingDayOfWeek; i++) {
-      days.push(null)
-    }
-    
-    // Add days of the month
-    for (let day = 1; day <= daysInMonth; day++) {
-      days.push(day)
-    }
-    
+    for (let i = 0; i < startingDayOfWeek; i++) days.push(null)
+    for (let day = 1; day <= daysInMonth; day++) days.push(day)
     return days
   }
 
@@ -77,131 +53,85 @@ const ProfessionalSelection = ({ bookingData, updateBookingData, onNext, onPrev 
 
   const canProceed = selectedProfessional && selectedDate && selectedTime
 
-  const monthNames = [
-    'January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December'
-  ]
-
-  const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+  const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December']
+  const dayNames = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
 
   return (
-    <div className="space-y-8">
-      <div className="flex items-center space-x-2 text-sm text-gray-600 mb-6">
-        <button onClick={onPrev} className="flex items-center hover:text-gray-900">
-          <span>← Back to Salon Details</span>
-        </button>
+    <div className="max-w-6xl mx-auto p-6">
+      <button onClick={onPrev} className="text-sm text-gray-600 mb-4 hover:underline">← Back to Salon Details</button>
+
+      <h1 className="text-2xl font-bold mb-6">Select Professionals</h1>
+
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
+        {professionals.map(pro => (
+          <button
+            key={pro.id}
+            onClick={() => handleProfessionalSelect(pro.id)}
+            className={`border rounded-lg px-4 py-6 text-center hover:shadow-md transition-all ${selectedProfessional === pro.id ? 'border-black' : 'border-gray-300'}`}
+          >
+            <div className="text-3xl mb-2">{pro.icon}</div>
+            <div className="font-medium text-gray-900">{pro.name}</div>
+            <div className="text-sm text-gray-500">{pro.subtitle}</div>
+          </button>
+        ))}
       </div>
 
-      <div>
-        <h1 className="text-2xl font-bold text-gray-900 mb-8">Select Professionals</h1>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-          {professionals.map((professional) => (
+      <h2 className="text-xl font-semibold mb-4">Select Date & Time</h2>
+
+      <div className="border rounded-lg p-6 mb-6">
+        <div className="flex justify-between items-center mb-4">
+          <div className="flex items-center gap-2">
+            <Calendar className="w-5 h-5 text-gray-500" />
+            <span className="font-medium">{monthNames[currentMonth.getMonth()]} {currentMonth.getFullYear()}</span>
+          </div>
+          <div className="flex gap-2">
+            <button onClick={() => setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1))}><ChevronLeft className="w-5 h-5" /></button>
+            <button onClick={() => setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1))}><ChevronRight className="w-5 h-5" /></button>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-7 text-sm text-gray-500 font-medium mb-2">
+          {dayNames.map(day => <div key={day} className="text-center py-2">{day}</div>)}
+        </div>
+
+        <div className="grid grid-cols-7 gap-2 mb-6">
+          {getDaysInMonth(currentMonth).map((day, i) => (
             <button
-              key={professional.id}
-              onClick={() => handleProfessionalSelect(professional.id)}
-              className={`card text-left hover:shadow-md transition-shadow duration-200 ${
-                selectedProfessional === professional.id 
-                  ? 'ring-2 ring-primary-500 border-primary-500' 
-                  : 'hover:border-gray-300'
-              }`}
+              key={i}
+              onClick={() => handleDateSelect(day)}
+              disabled={!day}
+              className={`w-10 h-10 rounded-full text-sm font-medium ${!day ? 'invisible' : selectedDate === day ? 'bg-black text-white' : 'hover:bg-gray-200 text-gray-800'}`}
             >
-              <div className="text-center mb-4">
-                <div className="text-2xl mb-2">{professional.icon}</div>
-                <div className="font-medium text-gray-900">{professional.name}</div>
-                <div className="text-sm text-gray-500">{professional.subtitle}</div>
-              </div>
+              {day}
             </button>
           ))}
         </div>
-      </div>
 
-      <div>
-        <h2 className="text-xl font-semibold text-gray-900 mb-6">Select Date & Time</h2>
-        
-        <div className="card">
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center space-x-2">
-              <Calendar className="w-5 h-5 text-gray-500" />
-              <span className="font-medium text-gray-900">
-                {monthNames[currentMonth.getMonth()]} {currentMonth.getFullYear()}
-              </span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <button
-                onClick={() => setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1))}
-                className="p-1 rounded hover:bg-gray-100"
-              >
-                <ChevronLeft className="w-4 h-4" />
-              </button>
-              <button
-                onClick={() => setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1))}
-                className="p-1 rounded hover:bg-gray-100"
-              >
-                <ChevronRight className="w-4 h-4" />
-              </button>
+        {selectedDate && (
+          <div>
+            <h3 className="text-sm font-medium text-gray-700 mb-2">Available Times</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {timeSlots.map((time) => (
+                <button
+                  key={time}
+                  onClick={() => handleTimeSelect(time)}
+                  className={`py-2 px-4 rounded-lg text-sm font-medium ${selectedTime === time ? 'bg-black text-white' : 'bg-gray-50 text-gray-700 hover:bg-gray-100'}`}
+                >
+                  {time}
+                </button>
+              ))}
             </div>
           </div>
-
-          <div className="grid grid-cols-7 gap-2 mb-4">
-            {dayNames.map(day => (
-              <div key={day} className="text-center text-sm font-medium text-gray-500 py-2">
-                {day}
-              </div>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-7 gap-2 mb-6">
-            {getDaysInMonth(currentMonth).map((day, index) => (
-              <button
-                key={index}
-                onClick={() => handleDateSelect(day)}
-                disabled={!day}
-                className={`w-10 h-10 rounded-full text-sm font-medium transition-colors duration-200 ${
-                  !day 
-                    ? 'invisible' 
-                    : selectedDate === day
-                    ? 'bg-black text-white'
-                    : 'hover:bg-gray-100 text-gray-700'
-                }`}
-              >
-                {day}
-              </button>
-            ))}
-          </div>
-
-          {selectedDate && (
-            <div>
-              <h3 className="font-medium text-gray-900 mb-4">Available Times</h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                {timeSlots.map((time) => (
-                  <button
-                    key={time}
-                    onClick={() => handleTimeSelect(time)}
-                    className={`py-2 px-4 rounded-lg text-sm font-medium transition-colors duration-200 ${
-                      selectedTime === time
-                        ? 'bg-black text-white'
-                        : 'bg-gray-50 text-gray-700 hover:bg-gray-100'
-                    }`}
-                  >
-                    {time}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
+        )}
       </div>
 
       {canProceed && (
-        <div className="flex justify-end">
-          <button onClick={onNext} className="btn-primary">
-            Continue to Review
-          </button>
+        <div className="text-right">
+          <button onClick={onNext} className="bg-black text-white px-6 py-2 rounded-lg hover:bg-gray-800 transition">Continue to Review</button>
         </div>
       )}
     </div>
   )
 }
 
-export default ProfessionalSelection
+export default ProfessionalSelection;
