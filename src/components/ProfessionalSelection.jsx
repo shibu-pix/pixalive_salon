@@ -15,14 +15,14 @@ const ProfessionalSelection = ({ bookingData, updateBookingData, onNext, onPrev 
       icon: '🔄'
     },
     { 
-      id: 'receptionist', 
-      name: 'Receptionist', 
-      subtitle: 'Reception',
+      id: 'Beautician', 
+      name: 'Premalatha', 
+      subtitle: 'Beautician',
       icon: '👥'
     },
     { 
-      id: 'gentleman', 
-      name: 'Gentleman', 
+      id: 'Hair Stylist', 
+      name: 'Somunaath', 
       subtitle: 'Hair Stylist',
       icon: '💰'
     }
