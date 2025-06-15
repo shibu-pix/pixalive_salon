@@ -15,7 +15,7 @@ const Home = () => {
   return (
     <div>
     <main className="space-y-16">
-      <Header />
+    
       <Categories />
       <Recent />
       <Recommended />
@@ -24,7 +24,7 @@ const Home = () => {
       <DownloadApp />
       <Testimonials />
       <FAQ />
-      <Footer />
+    
     </main>
     </div>
   );

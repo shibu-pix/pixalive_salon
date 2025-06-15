@@ -5,9 +5,9 @@ import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 
 // Image imports (ensure correct paths)
 import Img1 from "../../assets/Home/recent1.jpg";
-import Img2 from "../../assets/Home/recent1.jpg";
-import Img3 from "../../assets/Home/recent1.jpg";
-import Img4 from "../../assets/Home/recent1.jpg";
+import Img2 from "../../assets/Home/recent2.png";
+import Img3 from "../../assets/Home/rate1.jpg";
+import Img4 from "../../assets/Home/rate2.jpg";
 
 const topRatedSalons = [
   {
@@ -46,9 +46,9 @@ const topRatedSalons = [
 
 const TopRatedSalons = () => {
   return (
-    <div className="bg-gray-50 px-4 md:px-12 py-10 relative">
+    <div className=" px-4 md:px-12 py-10 relative">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-meadium text-gray-800">Top Rated Salons</h2>
+        <h2 className="text-3xl md:text-3xl font-meadium text-gray-800">Top Rated Salons</h2>
         <div className="flex gap-2">
           <button className="w-8 h-8 flex items-center justify-center rounded-full border border-gray-300 hover:bg-gray-200">
             <MdChevronLeft size={20} />

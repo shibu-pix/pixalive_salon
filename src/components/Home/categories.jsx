@@ -26,7 +26,7 @@ const categories = [
 const TopCategories = () => {
   return (
     <div className=" px-4 md:px-12 py-10">
-      <h2 className="text-2xl font-meadium text-gray-800 mb-6">Top Categories</h2>
+      <h2 className="text-3xl md:text-3xl font-meadium text-gray-800 mb-6">Top Categories</h2>
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
         {categories.map((category, index) => (
           <div

@@ -6,7 +6,7 @@ import AppScreenshot2 from "../../assets/Home/phone1.png"; // Lower + smaller im
 
 const DownloadAppSection = () => {
   return (
-    <section className="bg-gray-50 py-16 px-4 md:px-20">
+    <section className=" py-16 px-4 md:px-20">
       <div className="grid md:grid-cols-2 gap-12 items-center">
         {/* Left Side - Text */}
         <div>

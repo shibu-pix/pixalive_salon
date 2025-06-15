@@ -39,7 +39,7 @@ const FaqSection = () => {
   };
 
   return (
-    <div className=" px-4 md:px-12 py-16">
+    <div className=" px-4 md:px-12 pt-12 pb-16">
       <div className=" mx-auto">
         {/* Title */}
         <h2 className="text-3xl md:text-3xl font-meadium mb-10">

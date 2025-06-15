@@ -4,9 +4,9 @@ import { GoLocation } from "react-icons/go";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 
 // Image imports
-import Logo1 from "../../assets/Home/recent1.jpg";
-import Logo2 from "../../assets/Home/recent1.jpg";
-import Logo3 from "../../assets/Home/recent1.jpg";
+import Logo1 from "../../assets/Home/franch1.jpg";
+import Logo2 from "../../assets/Home/franch2.png";
+import Logo3 from "../../assets/Home/franch3.jpg";
 
 const franchiseDetails = {
   name: "Body Craft Clinic & Salon",
@@ -18,10 +18,10 @@ const franchiseDetails = {
 
 const TopFranchises = () => {
   return (
-    <section className="bg-gray-50 px-4 md:px-12 py-10">
+    <section className="px-4 md:px-12 py-10">
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-medium text-gray-800">
+        <h2 className="text-3xl md:text-3x1 font-medium text-gray-800">
           Top Franchises around you
         </h2>
         <div className="flex gap-2">
@@ -44,18 +44,25 @@ const TopFranchises = () => {
       <div className="grid md:grid-cols-3 gap-4">
         {/* Logos Column */}
         <div className="flex flex-col gap-4">
-          {[Logo1, Logo2, Logo3].map((logo, idx) => (
-            <div
-              key={idx}
-              className="bg-white p-4 rounded-xl border shadow-sm hover:shadow-md transition-shadow"
-            >
-              <img
-                src={logo}
-                alt={`Franchise ${idx + 1}`}
-                className="w-full h-28 object-contain"
-              />
-            </div>
-          ))}
+          {[Logo1, Logo2, Logo3].map((logo, idx) => {
+            const isMiddle = idx === 1;
+            return (
+              <div
+                key={idx}
+                className={`p-4 rounded-xl ${
+                  isMiddle ? "border border-gray-300" : "border-none"
+                } shadow-sm hover:shadow-md transition-shadow bg-white`}
+              >
+                <img
+                  src={logo}
+                  alt={`Franchise ${idx + 1}`}
+                  className={`mx-auto object-cover transition-transform duration-300 ${
+                    isMiddle ? "w-31 h-31" : "w-26 h-27"
+                  }`}
+                />
+              </div>
+            );
+          })}
         </div>
 
         {/* Detail Card (2 columns) */}
@@ -68,10 +75,12 @@ const TopFranchises = () => {
 
             {/* Enlarged Description */}
             <p
-              className="text-2xl md:text-3xl font-meadium text-gray-800 mb-6 leading-relaxed"
+              className="text-2xl md:text-3xl font-medium text-gray-800 mb-6 leading-relaxed"
               dangerouslySetInnerHTML={{ __html: franchiseDetails.description }}
             />
-<br/><br />
+            <br />
+            <br />
+
             {/* Info */}
             <h3 className="text-sm font-semibold text-gray-900">
               {franchiseDetails.name}

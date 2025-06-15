@@ -5,7 +5,6 @@ import { GoLocation } from "react-icons/go";
 // Import your images
 import Image1 from '../../assets/Home/recent1.jpg';
 import Image2 from '../../assets/Home/recent2.png';
-import Image3 from '../../assets/Home/recent3.jpg';
 
 const recentlyViewed = [
   {
@@ -17,28 +16,22 @@ const recentlyViewed = [
     category: "Hair Salon",
   },
   {
-    title: "Blown-Salon",
+    title: "Hair Speak Family Salon",
     image: Image2,
     rating: 4.3,
     reviews: 32,
     location: "Electronic City, Bengaluru",
     category: "Hair Salon",
   },
-  {
-    title: "Casa Air Wellness",
-    image: Image3,
-    rating: 4.3,
-    reviews: 32,
-    location: "Electronic City, Bengaluru",
-    category: "Massage",
-  },
 ];
 
-const RecentlyViewed = () => {
+const Location = () => {
   return (
-    <div className=" px-4 md:px-12 py-10">
-      <h2 className="text-3xl md:text-3xl font-meadium text-gray-800 mb-6">Recently viewed</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4">
+    <div className="px-4 md:px-12 py-10">
+      <h2 className="text-3xl md:text-3xl font-medium text-gray-800 mb-6">Other locations</h2>
+      
+      {/* Two cards in a row */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
         {recentlyViewed.map((item, index) => (
           <div
             key={index}
@@ -47,9 +40,9 @@ const RecentlyViewed = () => {
             <img
               src={item.image}
               alt={item.title}
-              className="w-full h-36 object-cover"
+              className="w-full h-40 object-cover"
             />
-            <div className="p-1">
+            <div className="p-3">
               <h3 className="text-sm font-semibold text-gray-900">{item.title}</h3>
               <div className="flex items-center gap-1 text-sm text-gray-700 mt-1">
                 {item.rating}
@@ -71,4 +64,4 @@ const RecentlyViewed = () => {
   );
 };
 
-export default RecentlyViewed;
+export default Location;

@@ -45,13 +45,13 @@ const renderStars = (rating) => {
 
 const TestimonialsSection = () => {
   return (
-    <section className="bg-gray-50 py-16 px-4 md:px-12">
-      <h2 className="text-2xl md:text-3xl font-meadium text-gray-900 mb-10">
+    <section className=" py-16 px-4 md:px-12">
+      <h2 className="text-3xl md:text-3xl font-meadium text-gray-900 mb-10">
         Hear from our users
       </h2>
       <div className="grid md:grid-cols-3 gap-6">
         {testimonials.map((t, idx) => (
-          <div key={idx} className="bg-white rounded-xl shadow-sm p-6">
+          <div key={idx} className="bg-white rounded-xl shadow-2xl p-6">
             {renderStars(t.rating)}
             <p className="text-gray-800 mb-6 text-sm leading-relaxed">"{t.text}"</p>
             <br /><br /><br />
