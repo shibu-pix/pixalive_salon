@@ -23,7 +23,7 @@ const ServiceSection = () => {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <div className="w-full pt-2  pb-8 text-black">
+    <div className="w-full pt-2  pb-8 text-black ">
       <div className="mx-auto px-4 md:px-12">
         {/* Title */}
         <h2 className="text-3xl md:text-3x1 font-meadium mb-4">Services</h2>
@@ -63,7 +63,7 @@ const ServiceSection = () => {
             </div>
 
             {/* Services List */}
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 ">
               {services.map((service, index) => (
                 <div
                   key={index}

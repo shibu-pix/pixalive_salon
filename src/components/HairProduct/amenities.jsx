@@ -25,7 +25,7 @@ const AmenitiesSection = () => {
 
       {/* Amenities Card */}
       <div className="bg-white border border-gray-200 rounded-xl px-12 py-4 w-fit outline-gray-100">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-y-14 gap-x-26">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-y-24 gap-x-42">
           {amenities.map((item, idx) => (
             <div
               key={idx}
