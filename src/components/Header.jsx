@@ -1,44 +1,63 @@
-import { Menu, User, MapPin, Clock, Phone } from 'lucide-react'
+import React from 'react';
+import { Menu, User, Search, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
-    <header className="bg-white border-b border-gray-200">
-      <div className="container mx-auto px-4">
+    <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center space-x-3">
-            {/* Exact Pixalive logo from your image */}
-            <div className="w-8 h-8 bg-black flex items-center justify-center relative">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                {/* White circle (top left) */}
-                <circle cx="10" cy="10" r="6" fill="white"/>
-                {/* White square (bottom left) */}
-                <rect x="4" y="18" width="12" height="10" fill="white"/>
-                {/* White P shape (right side) */}
-                <path d="M18 4h8c2 0 4 2 4 4v8c0 2-2 4-4 4h-8V4z" fill="white"/>
-              </svg>
-            </div>
-            <span className="font-semibold text-xl text-gray-900">Pixalive</span>
+          {/* Logo */}
+          <Link to="/" className="flex items-center">
+            <img 
+              src="/public/pixalive_technology_services_logo.jpeg" 
+              alt="Pixalive Logo" 
+              className="w-8 h-8 rounded"
+            />
+            <span className="ml-2 text-sm font-medium text-gray-900">
+              Pixalive Salon Network
+            </span>
+          </Link>
+
+          {/* Navigation */}
+          <div className="hidden md:flex items-center space-x-6">
+            <button className="text-sm text-gray-700 hover:text-gray-900">
+              All Treatments and venues
+            </button>
+            <button className="text-sm text-gray-700 hover:text-gray-900">
+              Current location
+            </button>
+            <button className="text-sm text-gray-700 hover:text-gray-900">
+              Any date
+            </button>
+            <button className="text-sm text-gray-700 hover:text-gray-900">
+              Any time
+            </button>
+
+            {/* ✅ Map View Link */}
+            <Link
+              to="/map"
+              className="flex items-center gap-1 px-3 py-1.5 border border-gray-300 rounded-md text-sm text-gray-700 hover:bg-gray-100 transition"
+            >
+              <MapPin className="w-4 h-4" />
+              Map View
+            </Link>
+
+            {/* Search Button */}
+            <button className="w-8 h-8 bg-black text-white rounded-full flex items-center justify-center">
+              <Search className="w-4 h-4" />
+            </button>
           </div>
-          
-          <div className="hidden md:flex items-center space-x-8 text-sm text-gray-600">
-            <span>All Treatments and venue</span>
-            <span>Current location</span>
-            <span>Any date</span>
-            <span>Any time</span>
-          </div>
-          
+
+          {/* Right side */}
           <div className="flex items-center space-x-4">
-            <button className="p-2 rounded-full hover:bg-gray-100">
-              <User className="w-5 h-5 text-gray-600" />
-            </button>
-            <button className="p-2 rounded-full hover:bg-gray-100 md:hidden">
-              <Menu className="w-5 h-5 text-gray-600" />
-            </button>
+            <Menu className="w-5 h-5 text-gray-700" />
+            <User className="w-5 h-5 text-gray-700" />
           </div>
         </div>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
