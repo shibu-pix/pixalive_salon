@@ -5,7 +5,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import BookingPage from './pages/BookingPage';
 import ReviewPage from './pages/ReviewPage';
-import MapPage from './pages/MapPage';
+
 
 function App() {
   return (
@@ -17,7 +17,6 @@ function App() {
             <Route path="/" element={<BookingPage />} />
             <Route path="/booking" element={<BookingPage />} />
             <Route path="/review" element={<ReviewPage />} />
-            <Route path="/map" element={<MapPage />} />
           </Routes>
         </main>
         <Footer />
