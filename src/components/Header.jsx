@@ -34,15 +34,6 @@ const Header = () => {
               Any time
             </button>
 
-            {/* ✅ Map View Link */}
-            <Link
-              to="/map"
-              className="flex items-center gap-1 px-3 py-1.5 border border-gray-300 rounded-md text-sm text-gray-700 hover:bg-gray-100 transition"
-            >
-              <MapPin className="w-4 h-4" />
-              Map View
-            </Link>
-
             {/* Search Button */}
             <button className="w-8 h-8 bg-black text-white rounded-full flex items-center justify-center">
               <Search className="w-4 h-4" />
