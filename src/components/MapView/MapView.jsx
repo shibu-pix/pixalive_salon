@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { salonsData, cityCoordinates } from './data/salonsData';
+import { salonsData, cityCoordinates } from '../data/salonsData';
 import SalonCard from './SalonCard';
 import 'leaflet/dist/leaflet.css';
 

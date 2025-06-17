@@ -1,13 +1,5 @@
 import React, { useState } from 'react';
-import {
-  ChevronLeft,
-  ChevronDown,
-  Star,
-  Clock,
-  Phone,
-  Shield,
-  HeadphonesIcon
-} from 'lucide-react';
+import { ChevronLeft, ChevronDown, Star, Clock, Phone, Shield, HeadphonesIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const ReviewPage = () => {
@@ -15,11 +7,6 @@ const ReviewPage = () => {
   const [discountCode, setDiscountCode] = useState('');
   const [bookingNotes, setBookingNotes] = useState('');
   const [showPriceBreakdown, setShowPriceBreakdown] = useState(false);
-  const [isConfirmed, setIsConfirmed] = useState(false); // ✅ new state
-
-  const handleConfirm = () => {
-    setIsConfirmed(true); // ✅ show confirmation message
-  };
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -169,7 +156,7 @@ const ReviewPage = () => {
                 <span className="font-medium">Price Breakdown</span>
                 <ChevronDown className={`w-4 h-4 transition-transform ${showPriceBreakdown ? 'rotate-180' : ''}`} />
               </button>
-
+              
               {showPriceBreakdown && (
                 <div className="mt-3 space-y-2 text-sm">
                   <div className="flex justify-between">
@@ -178,7 +165,7 @@ const ReviewPage = () => {
                   </div>
                   <div className="flex justify-between">
                     <span>Tax Amount 18%</span>
-                    <span>₹20.44</span>
+                    <span>₹ 20.44</span>
                   </div>
                 </div>
               )}
@@ -193,19 +180,9 @@ const ReviewPage = () => {
             </div>
 
             {/* Confirm Button */}
-            <button
-              onClick={handleConfirm}
-              className="w-full bg-black text-white py-3 rounded-lg text-center font-medium hover:bg-gray-800 transition-colors"
-            >
+            <button className="w-full bg-black text-white py-3 rounded-lg text-center font-medium hover:bg-gray-800 transition-colors">
               Confirm Appointment
             </button>
-
-            {/* ✅ Confirmation Message */}
-            {isConfirmed && (
-              <div className="mt-4 text-green-600 font-semibold text-center">
-                ✅ Your appointment is confirmed!
-              </div>
-            )}
 
             {/* Support Info */}
             <div className="mt-6 space-y-4">
