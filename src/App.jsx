@@ -1,25 +1,29 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import BookingPage from './pages/BookingPage';
-import ReviewPage from './pages/ReviewPage';
+import Header from './components/Home/header';
+import Footer from './components/Home/footer';
+import Home from './pages/Home';
+import Hair from './pages/HairSalone';
+import HairProduct from './pages/HairProduct';
+import Service from './pages/Service';
 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Menu } from 'lucide-react';
 
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-gray-50 flex flex-col">
-        <Header />
-        <main className="flex-1">
-          <Routes>
-            <Route path="/" element={<BookingPage />} />
-            <Route path="/booking" element={<BookingPage />} />
-            <Route path="/review" element={<ReviewPage />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      <Header />
+      
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/hair" element={<Hair/>} />
+          <Route path="/hairpro" element={<HairProduct/>} />
+          <Route path="/service" element={<Service/>} />      
+        </Routes>
+      </main>
+      
+      <Footer />
     </Router>
   );
 }
