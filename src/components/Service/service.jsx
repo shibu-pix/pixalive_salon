@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaChevronLeft, FaChevronRight, FaStar } from 'react-icons/fa';
+import Service from '../../assets/Service/service.png';
 
 const serviceData = [
   {
@@ -138,7 +139,7 @@ const ServiceSelection = () => {
         <div className="border rounded-xl p-4">
           <div className="flex items-center gap-3">
             <img
-              src="https://via.placeholder.com/80"
+              src={Service}
               alt="Venue"
               className="w-16 h-16 rounded-lg object-cover"
             />

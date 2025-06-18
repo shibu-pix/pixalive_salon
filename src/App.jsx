@@ -4,7 +4,8 @@ import Footer from './components/Home/footer';
 import Home from './pages/Home';
 import Hair from './pages/HairSalone';
 import HairProduct from './pages/HairProduct';
-import Service from './pages/Service';
+import Service from './pages/Service'
+import Map from './pages/Map';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Menu } from 'lucide-react';
@@ -19,7 +20,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/hair" element={<Hair/>} />
           <Route path="/hairpro" element={<HairProduct/>} />
-          <Route path="/service" element={<Service/>} />      
+          <Route path="/service" element={<Service/>} /> 
+          <Route path="/map" element={<Map/>} />      
         </Routes>
       </main>
       
