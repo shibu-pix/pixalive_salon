@@ -5,6 +5,7 @@ import CityFilters from '../components/MapView/CityFilters';
 import SalonResults from '../components/MapView/SalonResults';
 import MapView from '../components/MapView/MapView';
 
+
 function ExploreSalons() {
   const [activeView, setActiveView] = useState('list');
   const [selectedCity, setSelectedCity] = useState('Bengaluru');

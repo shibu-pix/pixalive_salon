@@ -21,7 +21,7 @@ const Home = () => {
       <Card />
       <Results />
       <Rating />
-      
+
     </main>
     </div>
   );

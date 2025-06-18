@@ -21,7 +21,7 @@ function App() {
           <Route path="/hairpro" element={<HairProduct />} />
           <Route path="/service" element={<Service />} />
           <Route path="/product" element={<Product />} />
-          <Route path="/mapview" element={<ExploreSalons />} /> {/* ✅ */}
+          <Route path="/mapview" element={<ExploreSalons />} /> 
         </Routes>
       </main>
       <Footer />
