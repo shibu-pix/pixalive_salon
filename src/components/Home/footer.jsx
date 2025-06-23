@@ -2,6 +2,7 @@ import React from "react";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import PixaliveLogo from "../../assets/Home/pixalive.png";
 import { div } from "framer-motion/client";
+import Logo from "./../../assets/Home/logo.png";
 
 const Footer = () => {
   return (
@@ -12,9 +13,8 @@ const Footer = () => {
         {/* Left Section */}
         <div className="flex flex-col gap-6 md:w-1/2">
           {/* Logo Icon */}
-          <div className="w-6 h-6 bg-white text-black font-black text-xs flex items-center justify-center rounded-sm">
-            P
-          </div>
+          <img src={Logo} alt="Venum Logo" className="w-8 h-8 object-contain bg-black" />
+          
 
           {/* Tagline */}
           <p className="leading-relaxed text-l">
@@ -51,7 +51,7 @@ const Footer = () => {
           </div>
 
           {/* Footer Links */}
-          <div className="flex justify-end space-x-10 mt-6 text-xs text-gray-400">
+          <div className="flex justify-end space-x-58 mt-6 text-xs text-gray-400">
             <a href="#">Terms of Use</a>
             <a href="#">Privacy Policy</a>
           </div>
