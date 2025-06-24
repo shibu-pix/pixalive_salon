@@ -5,7 +5,7 @@ import {
   FaMotorcycle,
   FaCar,
   FaUserShield,
-  FaRestroom,
+  FaRestroom, 
 } from "react-icons/fa";
 
 const amenities = [
